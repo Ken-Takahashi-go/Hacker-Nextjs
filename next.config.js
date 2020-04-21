@@ -1,6 +1,6 @@
 const SWPrecacheWebpackPlugin = require("sw-precache-webpack-plugin");
 
-module.export = {
+module.exports = {
   webpack: (config) => {
     config.plugins.push(
       new SWPrecacheWebpackPlugin({
