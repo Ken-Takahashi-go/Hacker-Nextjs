@@ -2,8 +2,13 @@ import fetch from "isomorphic-fetch";
 import Error from "next/error";
 import Layout from "./../components/Layout";
 import CommentList from "../components/CommentList";
+import { useRouter } from "next/router";
 
 const Story = ({ story }) => {
+  const router = useRouter();
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
   Story.getInitialProps = async ({ req, res, query }) => {
     let story;
     try {
